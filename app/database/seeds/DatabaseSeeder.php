@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		$this->call('AcaoTableSeeder');
-		$this->call('PerfilTableSeeder');
-		$this->call('UsuarioTableSeeder');
+		// $this->call('PerfilTableSeeder');
+		// $this->call('UsuarioTableSeeder');
 	}
 
 }

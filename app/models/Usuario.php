@@ -9,8 +9,6 @@ class Usuario extends BaseModel implements UserInterface, RemindableInterface
 
 	protected $fillable = array('nome', 'username', 'password', 'email', 'ativo', 'perfil_id');
 
-	protected $hidden = array('password');
-
 	public static $rules = array(
 		'nome' => 'required|min:3|max:120',
 		'username' => 'required|min:3|max:25|unique:usuarios,username',

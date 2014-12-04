@@ -78,3 +78,24 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| ACL Filter
+|--------------------------------------------------------------------------
+|
+| ACL Filter
+|
+*/
+
+Route::filter('acl', function()
+{
+	$permission = array('usuario.welcome', 'usuario.logout');
+	$routeName = Route::currentRouteName();
+	$cache = Cache::get('actions' . Auth::user()->id);
+
+	if(!in_array($routeName, $permission) && !in_array($routeName, $cache) && !in_array('*', $cache)) {
+		return Redirect::back()
+			->with('danger', Util::message('MSG013'));
+	}
+});

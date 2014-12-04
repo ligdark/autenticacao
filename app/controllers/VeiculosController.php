@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class VeiculosController extends BaseController {
 
 	protected $veiculo;
